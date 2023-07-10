@@ -17,10 +17,10 @@ Ketik ${usedPrefix}who untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.siapakahaku[id] = [
-        await (m.chat, ['hint', `${usedPrefix}who`], m),
+        await conn.sendMassage (m.chat, ['hint', `${usedPrefix}who`], m),
         json, poin,
         setTimeout(() => {
-            if (conn.siapakahaku[id]) (m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`,  ['siapahaku', '/siapakahaku'], conn.siapakahaku[id][0])
+            if (conn.siapakahaku[id]) conn.sendMassage (m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`,  ['siapahaku', '/siapakahaku'], conn.siapakahaku[id][0])
             delete conn.siapakahaku[id]
         }, timeout)
     ]
